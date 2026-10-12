@@ -120,3 +120,36 @@ button:hover {
 .lab-header p {
   text-align: left;
 }
+
+
+.project-card {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-left: 4px solid #73000a;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.project-card h3 {
+  color: #73000a;
+  margin-top: 0;
+}
+
+.project-card p {
+  color: #555;
+}
+
+.preview {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 30px 0;
+}

@@ -22,10 +22,13 @@ project information, preview changes, and save content.
 
 ## Features
 
-- Edit a research project title.
-- Edit a research project description.
-- Preview the research content.
-- Save changes and keep them after refreshing the page.
+- Create new research projects with a title and description.
+- Save multiple research projects.
+- View all saved research projects.
+- Edit existing research projects.
+- Preview research content before saving.
+- Keep saved projects after refreshing the browser.
+
 
 ## How to Run
 
