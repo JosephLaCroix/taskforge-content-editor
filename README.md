@@ -1,16 +1,64 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# MSMOMS Lab Content Editor
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a small React application created for my
+Capstone Research Milestone. It is a prototype of the
+content editing functionality planned for our team's
+MSMOMS Lab research website.
 
-## React Compiler
+The application allows an administrator to edit research
+project information, preview changes, and save content.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React: Builds the interactive user interface.
+- JavaScript: Handles user input and application logic.
+- Vite: Sets up and runs the React application.
+- HTML/CSS: Provides the page structure and styling.
+- npm: Installs and manages project dependencies.
+- localStorage: Saves information in the browser.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Edit a research project title.
+- Edit a research project description.
+- Preview the research content.
+- Save changes and keep them after refreshing the page.
+
+## How to Run
+
+1. Install Node.js.
+2. Open the project folder in a terminal.
+3. Run `npm install` to install dependencies.
+4. Run `npm run dev` to start the application.
+5. Open the localhost URL shown in the terminal.
+
+## Technology Research
+
+I chose React because it allows me to build interactive
+website components and update the page when users enter
+information.
+
+Vite made setting up the React project simple and provides
+a development server that updates as I make changes.
+
+I used npm to install and manage the dependencies needed
+to run the project. The package.json file lists these
+dependencies, while package-lock.json records the installed
+dependency versions.
+
+For this prototype, I used localStorage instead of a
+database. This keeps the application simple while still
+allowing information to be saved between browser sessions.
+
+One limitation is that localStorage only saves data in the
+current browser. A full CMS would need a backend, database,
+and user authentication to support multiple administrators.
+
+## Future Improvements
+
+The full MSMOMS Lab website could include researcher
+profiles, publications, research projects, and an
+administrative dashboard.
