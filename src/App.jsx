@@ -1,121 +1,75 @@
+
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [title, setTitle] = useState(
+    localStorage.getItem('projectTitle') || ''
+  )
+  const [description, setDescription] = useState(
+    localStorage.getItem('projectDescription') || ''
+  )
+  const [showPreview, setShowPreview] = useState(false)
+  const [message, setMessage] = useState('')
+
+  function saveProject() {
+    localStorage.setItem('projectTitle', title)
+    localStorage.setItem('projectDescription', description)
+    setMessage('Project saved successfully!')
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
+    <div>
+      <header className="lab-header">
+  <div className="lab-logo">M</div>
+  <div>
+    <h1>MSMOMS Lab</h1>
+    <p>Research Content Management System</p>
+  </div>
+</header>
+
+<h2>Research Content Editor</h2>
+<p>Edit research project information below.</p>
+
+      <h3>Project Title</h3>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => {
+          setTitle(e.target.value)
+          setMessage('')
+        }}
+        placeholder="Enter project title"
+      />
+
+      <h3>Project Description</h3>
+      <textarea
+        value={description}
+        onChange={(e) => {
+          setDescription(e.target.value)
+          setMessage('')
+        }}
+        placeholder="Enter project description"
+      />
+
+      <br />
+
+      <button onClick={saveProject}>Save Project</button>
+
+      <button onClick={() => setShowPreview(!showPreview)}>
+        {showPreview ? 'Hide Preview' : 'Preview'}
+      </button>
+
+      <p>{message}</p>
+
+      {showPreview && (
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+          <h2>Research Project Preview</h2>
+          <h3>{title}</h3>
+          <p>{description}</p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      )}
+    </div>
   )
 }
 
